@@ -1,0 +1,80 @@
+###
+Command Prompt: 11 basic commands you should know (cd, dir, mkdir, etc.)
+ Click Windows Button + R
+https://www.digitalcitizen.life/command-prompt-how-use-basic-commands/
+
+## VueJs Environment Setup
+
+*Install  NodeJs Globally
+ Node:
+  node --version or node -v
+ npm:
+  npm --version or npm -v
+ Version of vue cli:
+  vue --version or -V
+Version of vue:
+ npm list vue
+
+#Create Vue CLI Project
+ vue create project-name
+
+##Include Bootstrap into VueJs
+ npm install vue bootstrap bootstrap-vue
+ Then Import Into main.js/app.js
+ import 'bootstrap/dist/css/bootstrap.min.css'
+
+### #####     Integration Process of VueJs With Laravel   #################
+
+#1. Target class controller does not exist - Laravel 8
+Route::get('/{any}','DashboardController@index')->where('any','.*');
+
+For solution just uncomment line 29:
+in 'app\Providers\RouteServiceProvider.php' file.
+**protected $namespace = 'App\\Http\\Controllers';**
+
+#2.Installation :
+https://dev.to/boussadjra/how-to-setup-vue-3-with-laravel-8-4ne6
+
+npm i -D laravel-mix@next vue@next @vue/compiler-sfc vue-loader@next
+
+#Change this at webpack.mix.js
+mix.js('resources/js/app.js', 'public/js').vue()
+    .postCss('resources/css/app.css', 'public/css', [
+        //
+    ]);
+
+
+#Use Vue Router
+npm i vue-router@next
+
+######  Use of axios
+npm install axios --save
+
+import axios from 'axios'
+
+##### Date formatting using moment js in Vue js
+
+npm install moment
+import moment from 'moment'
+
+moment().format();                                // "2019-08-12T17:52:17-05:00" (ISO 8601, no fractional seconds)
+moment().format("dddd, MMMM Do YYYY, h:mm:ss a"); // "Monday, August 12th 2019, 5:52:00 pm"
+moment().format("ddd, hA");                       // "Mon, 5PM"
+
+
+In 3.x, filters are removed and no longer supported. Instead, we recommend replacing them with method calls or computed properties.
+
+
+##### Disable a component in a specific case in Vue.js
+  <date-picker v-if="this.$route.meta.requiresDatePicker"></date-picker>
+
+routes: [
+    {
+      path: "/foo",
+      component: Foo,
+      meta: { requiresDatePicker: true }
+    },
+
+  ]
+
+
